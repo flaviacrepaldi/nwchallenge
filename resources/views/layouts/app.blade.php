@@ -36,7 +36,11 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @guest
+                            &nbsp;
+                        @else
+                            <li><a href="{{ route('guerreiros') }}">Guerreiros</a></li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
