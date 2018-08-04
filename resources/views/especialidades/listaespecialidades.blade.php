@@ -6,8 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Guerreiros New Way
-                    <a class="pull-right" href="{{url('guerreiros/novoguerreiro')}}"> Novo guerreiro </a>    
+                    Especialidades
+                    <a class="pull-right" href="{{url('especialidades/novaespecialidade')}}"> Nova Especialidade </a>    
                 </div>
 
                 <div class="panel-body">
@@ -17,7 +17,7 @@
                         </div>
                     @endif
 
-                    Lista de guerreiros
+                    Lista de especialidades
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>New Way | Challenge</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -40,6 +40,8 @@
                             &nbsp;
                         @else
                             <li><a href="{{ route('guerreiros') }}">Guerreiros</a></li>
+                            <li><a href="{{ route('tipos') }}">Tipos de Guerreiro</a></li>
+                            <li><a href="{{ route('especialidades') }}">Especialidades</a></li>
                         @endguest
                     </ul>
 
@@ -47,8 +49,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Cadastre-se</a></li>
+                            <li><a href="{{ route('login') }}">Entrar</a></li>
+                            
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -80,5 +83,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+  
 </body>
 </html>

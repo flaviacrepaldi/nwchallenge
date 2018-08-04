@@ -19,5 +19,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/guerreiros', 'GuerreirosController@index')->name('guerreiros');
-    Route::get('/guerreiros/novoguerreiro', 'GuerreirosController@novo')->name('form');
+    Route::get('/guerreiros/novoguerreiro', 'GuerreirosController@novo')->name('formguerreiros');
+    Route::post('/guerreiros/salvar', 'GuerreirosController@salvar');
+
+    Route::get('/tipos', 'TiposController@index')->name('tipos');
+    Route::get('/tipos/novotipo', 'TiposController@novo')->name('formtipos');
+    Route::post('/tipos/salvar', 'TiposController@salvar')->name('tipos.salvar');;
+    
+    Route::get('/especialidades', 'EspecialidadesController@index')->name('especialidades');
+    Route::get('/especialidades/novaespecialidade', 'EspecialidadesController@novo')->name('formespecialidades');
+    Route::post('/especialidades/salvar', 'EspecialidadesController@salvar');
 });

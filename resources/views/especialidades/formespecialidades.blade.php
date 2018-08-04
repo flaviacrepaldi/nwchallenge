@@ -6,8 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Informe as características nos campos abaixo
-                    <a class="pull-right" href="{{url('guerreiros')}}"> Ver todos </a>    
+                    Informe o nome da especialidade no campo abaixo
+                    <a class="pull-right" href="{{url('especialidades')}}"> Ver todas </a>    
                 </div>
 
                 <div class="panel-body">
@@ -17,7 +17,7 @@
                         </div>
                     @endif
                     {{Form::open()}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome'])}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', 'autofocus', 'placeholder' => 'Especialidade'])}}
                         
                     {{Form::close()}}                    
                 </div>

@@ -6,8 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Informe as características nos campos abaixo
-                    <a class="pull-right" href="{{url('guerreiros')}}"> Ver todos </a>    
+                    Informe o novo tipo no campo abaixo
+                    <a class="pull-right" href="{{url('tipos')}}"> Ver todos </a>    
                 </div>
 
                 <div class="panel-body">
@@ -16,10 +16,20 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Form::open()}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome'])}}
-                        
-                    {{Form::close()}}                    
+                    <form action="{{ route('tipos.salvar') }}" method="POST" enctype="multipart/form-data">
+	                	{{ csrf_field() }}
+						<div class="form-group">
+						  	<label for="name">Tipo de guerreiro</label>
+						    <input type="text" class="form-control" name="tipo" id="tipo" placeholder="Tipo">
+						</div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input name="image" type="file">
+                            </div>
+                        </div>
+                        <br />
+						<button type="submit" class="btn btn-primary">Salvar</button>
+	                </form>
                 </div>
             </div>
         </div>

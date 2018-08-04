@@ -16,8 +16,18 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Form::open()}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome'])}}                       
+                    {{Form::open(['url' => 'guerreiros/salvar'])}}
+                        {{Form::label('nome', 'Nome')}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome'])}}                            
+                        {{Form::label('nome', 'Velocidade de ataque')}}
+                        {{Form::input('number', 'velocidadeAtaque','', ['id' => 'velocidadeAtaque', 'class' => 'form-control', 'onkeypress' =>'return isNumberKey(event)',  'placeholder' => '0,0', 'maxlength' => '3'])}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
+                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}                   
+                        {{Form::submit('Salvar', ['class'=>'btn btn_primary'])}}
                     {{Form::close()}}                    
                 </div>
             </div>
