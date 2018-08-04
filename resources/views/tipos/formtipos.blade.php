@@ -16,17 +16,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form action="{{ route('tipos.salvar') }}" method="POST" enctype="multipart/form-data">
+                    
+                        
+                    <form action="{{ route('tipos.salvar') }}" method="POST" enctype="multipart/form-data">                
 	                	{{ csrf_field() }}
 						<div class="form-group">
 						  	<label for="name">Tipo de guerreiro</label>
 						    <input type="text" class="form-control" name="tipo" id="tipo" placeholder="Tipo">
-						</div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <input name="image" type="file">
-                            </div>
-                        </div>
+						</div>                        
                         <br />
 						<button type="submit" class="btn btn-primary">Salvar</button>
 	                </form>

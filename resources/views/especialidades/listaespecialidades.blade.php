@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Especialidades
-                    <a class="pull-right" href="{{url('especialidades/novaespecialidade')}}"> Nova Especialidade </a>    
+                    <a class="pull-right" href="{{url('especialidades/novaespecialidade')}}"> Nova especialidade </a>    
                 </div>
 
                 <div class="panel-body">
@@ -17,7 +17,34 @@
                         </div>
                     @endif
 
-                    Lista de especialidades
+                    @if(Session::has('mensagem_sucesso'))
+                        <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
+                    @endif                    
+
+                     <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Especialidade</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($especialidades as $especialidade)
+                                <tr>
+                                    <th scope="row" class="text-center">{{ $especialidade->id }}</th>
+                                    <td>{{ $especialidade->especialidade }}</td>
+                                    <td width="155" class="text-center">
+                                        <a href="especialidades/editar/{{$especialidade->id}}" class="btn btn-default">Editar</a>
+                                    </td>
+                                    <td width="155" class="text-center">
+                                        <a href="especialidades/excluir/{{$especialidade->id}}" class="btn btn-danger">Excluir</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -17,6 +17,10 @@
                         </div>
                     @endif
 
+                    @if(Session::has('mensagem_sucesso'))
+                        <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
+                    @endif                    
+
                      <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -32,10 +36,10 @@
                                     <th scope="row" class="text-center">{{ $tipo->id }}</th>
                                     <td>{{ $tipo->tipo }}</td>
                                     <td width="155" class="text-center">
-                                        <a href="#" class="btn btn-default">Editar</a>
+                                        <a href="tipos/editar/{{$tipo->id}}" class="btn btn-default">Editar</a>
                                     </td>
                                     <td width="155" class="text-center">
-                                        <a href="#" class="btn btn-danger">Deletar</a>
+                                        <a href="tipos/excluir/{{$tipo->id}}" class="btn btn-danger">Excluir</a>
                                     </td>
                                 </tr>
                             @endforeach

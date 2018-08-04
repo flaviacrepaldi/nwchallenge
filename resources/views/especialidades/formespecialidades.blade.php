@@ -16,10 +16,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Form::open()}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', 'autofocus', 'placeholder' => 'Especialidade'])}}
-                        
-                    {{Form::close()}}                    
+                    <form action="{{ route('especialidades.salvar') }}" method="POST" enctype="multipart/form-data">                
+	                	{{ csrf_field() }}
+						<div class="form-group">
+						  	<label for="especialidade">Nova especialidade</label>
+						    <input type="text" class="form-control" name="especialidade" id="especialidade" placeholder="Especialidade">
+						</div>                        
+                        <br />
+						<button type="submit" class="btn btn-primary">Salvar</button>
+	                </form>                  
                 </div>
             </div>
         </div>

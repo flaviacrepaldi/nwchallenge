@@ -24,9 +24,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/tipos', 'TiposController@index')->name('tipos');
     Route::get('/tipos/novotipo', 'TiposController@novo')->name('formtipos');
-    Route::post('/tipos/salvar', 'TiposController@salvar')->name('tipos.salvar');;
+    Route::post('/tipos/salvar', 'TiposController@salvar')->name('tipos.salvar');    
+    Route::get('/tipos/editar/{id}', 'TiposController@editar');
+    Route::post('/tipos/atualizar/{id}', 'TiposController@atualizar')->name('tipos.atualizar');
+    Route::get('/tipos/excluir/{id}', 'TiposController@excluir')->name('tipos.excluir');
     
     Route::get('/especialidades', 'EspecialidadesController@index')->name('especialidades');
     Route::get('/especialidades/novaespecialidade', 'EspecialidadesController@novo')->name('formespecialidades');
-    Route::post('/especialidades/salvar', 'EspecialidadesController@salvar');
+    Route::post('/especialidades/salvar', 'EspecialidadesController@salvar')->name('especialidades.salvar');
+    Route::get('/especialidades/editar/{id}', 'EspecialidadesController@editar');
+    Route::post('/especialidades/atualizar/{id}', 'EspecialidadesController@atualizar')->name('especialidades.atualizar');
+    Route::get('/especialidades/excluir/{id}', 'EspecialidadesController@excluir')->name('especialidades.excluir');
 });
