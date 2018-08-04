@@ -16,8 +16,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Campos - guerreiros
+                    {{Form::open()}}
+                    
+                    {{Form::close()}}                    
                 </div>
             </div>
         </div>
