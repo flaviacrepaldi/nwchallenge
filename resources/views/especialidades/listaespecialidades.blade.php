@@ -26,8 +26,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Especialidade</th>
-                                <th></th>
-                                <th></th>
+                                <th>Ações</th>                                
                             </tr>
                         </thead>
                         <tbody>
@@ -36,11 +35,8 @@
                                     <th scope="row" class="text-center">{{ $especialidade->id }}</th>
                                     <td>{{ $especialidade->especialidade }}</td>
                                     <td width="155" class="text-center">
-                                        <a href="especialidades/editar/{{$especialidade->id}}" class="btn btn-default">Editar</a>
-                                    </td>
-                                    <td width="155" class="text-center">
-                                        <a href="especialidades/excluir/{{$especialidade->id}}" class="btn btn-danger">Excluir</a>
-                                    </td>
+                                        <a href="especialidades/editar/{{$especialidade->id}}" class="btn btn-default btn-sm">Editar</a>
+                                        <a href="especialidades/excluir/{{$especialidade->id}}" class="btn btn-danger btn-sm">Excluir</a>
                                 </tr>
                             @endforeach
                         </tbody>

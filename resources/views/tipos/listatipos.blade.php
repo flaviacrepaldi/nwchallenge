@@ -26,8 +26,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tipo</th>
-                                <th></th>
-                                <th></th>
+                                <th>Ações</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -36,11 +36,9 @@
                                     <th scope="row" class="text-center">{{ $tipo->id }}</th>
                                     <td>{{ $tipo->tipo }}</td>
                                     <td width="155" class="text-center">
-                                        <a href="tipos/editar/{{$tipo->id}}" class="btn btn-default">Editar</a>
-                                    </td>
-                                    <td width="155" class="text-center">
-                                        <a href="tipos/excluir/{{$tipo->id}}" class="btn btn-danger">Excluir</a>
-                                    </td>
+                                        <a href="tipos/editar/{{$tipo->id}}" class="btn btn-default btn-sm">Editar</a>
+                                        <a href="tipos/excluir/{{$tipo->id}}" class="btn btn-danger btn-sm">Excluir</a>
+                                    </td>                                    
                                 </tr>
                             @endforeach
                         </tbody>
