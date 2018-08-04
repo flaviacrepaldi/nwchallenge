@@ -14,13 +14,18 @@ class CreateGuerreirosTable extends Migration
     public function up()
     {
         Schema::create('guerreiros', function (Blueprint $table) {
-            $table->increments('id_guerreiro');
+            $table->increments('id');
+            
+            $table->integer('id_tipo')->unsigned();
+            $table->foreign('id_tipo')->references('id')->on('tipos');
+           
             $table->string('nome')->unique();
             $table->integer('vida');
             $table->integer('defesa');
             $table->integer('dano');
             $table->decimal('velocidade_ataque', 3, 1);
             $table->integer('velocidade_movimento');
+            $table->string('imagem_guerreiro');
             $table->timestamps();
         });
     }

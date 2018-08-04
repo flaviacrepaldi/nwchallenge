@@ -14,7 +14,7 @@ class CreateTiposTable extends Migration
     public function up()
     {
         Schema::create('tipos', function (Blueprint $table) {
-            $table->increments('id_tipo');
+            $table->increments('id');
             $table->string('tipo');
             $table->timestamps();
         });

@@ -11,16 +11,13 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Route::get('/', 'HomeController@index')->name('home');
-
 Auth::routes();
 
+//restrição de acesso à home definida no Controller
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/guerreiros', 'GuerreirosController@index')->name('guerreiros');
-
-Route::get('/guerreiros/novoguerreiro', 'GuerreirosController@novo')->name('form');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/guerreiros', 'GuerreirosController@index')->name('guerreiros');
+    Route::get('/guerreiros/novoguerreiro', 'GuerreirosController@novo')->name('form');
+});
