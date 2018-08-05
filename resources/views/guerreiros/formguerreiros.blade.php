@@ -16,19 +16,57 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Form::open(['url' => 'guerreiros/salvar'])}}
-                        {{Form::label('nome', 'Nome')}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome'])}}                            
-                        {{Form::label('nome', 'Velocidade de ataque')}}
-                        {{Form::input('number', 'velocidadeAtaque','', ['id' => 'velocidadeAtaque', 'class' => 'form-control', 'onkeypress' =>'return isNumberKey(event)',  'placeholder' => '0,0', 'maxlength' => '3'])}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}
-                        {{Form::input('text', 'nome', '', ['class' => 'form-control', '', 'placeholder' => 'Nome'])}}                   
-                        {{Form::submit('Salvar', ['class'=>'btn btn_primary'])}}
-                    {{Form::close()}}                    
+                    <form action="{{ route('guerreiros.salvar') }}" method="POST" enctype="multipart/form-data">                
+	                	{{ csrf_field() }}
+						<div class="form-group">
+						  	<label for="nome">Nome</label>
+						    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+                            
+                            <label for="tipo">Tipo</label>
+                             <select name="tipo" class="form-control selectpicker" data-live-search="true" title="Tipo">
+                                <?php 
+                                if(!empty($tipos)){
+                                    foreach($tipos as $tipo){ ?>
+                                        <option value="<?= $tipo->id ?>"> <?= $tipo->tipo ?></option>
+                                    <?php }
+                                } ?>
+                            </select>
+
+                            <label for="especialidade">Especialidades</label>
+
+                            
+                            <select name="especialidade[]" class="form-control selectpicker" multiple="" data-live-search="true" title="Especialidade">
+                                <?php 
+                                if(!empty($especialidades)){
+                                    foreach($especialidades as $especialidade){ ?>
+                                        <option value="<?= $especialidade->id ?>"> <?= $especialidade->especialidade ?></option>
+                                    <?php }
+                                } ?>
+                            </select>
+
+                            <label for="vida">Vida</label>
+						    <input type="text" class="form-control" name="vida" id="vida" placeholder="ex: 6000">
+                            <label for="defesa">Defesa</label>
+						    <input type="text" class="form-control" name="defesa" id="defesa" placeholder="ex: 360">
+                            <label for="dano">Dano</label>
+						    <input type="text" class="form-control" name="dano" id="dano" placeholder="ex: 300">
+                            <label for="velocidadeAtaque">Velocidade de Ataque</label>
+						    <input type="text" class="form-control" name="velocidadeAtaque" id="velocidadeAtaque" placeholder="ex: 1.2">
+                            <label for="velocidadeMovimento">Velocidade de Movimento</label>
+						    <input type="text" class="form-control" name="velocidadeMovimento" id="velocidadeMovimento" placeholder="ex: 330">
+
+                            <label for="nome">Imagem</label>
+                            <div class="control-group input-images">                         
+                            
+                            <div class="controls">
+                                <input name="imagem" type="file">
+                            </div>
+                        </div>
+
+						</div>                        
+                        <br />
+						<button type="submit" class="btn btn-primary">Salvar</button>
+	                </form>             
                 </div>
             </div>
         </div>

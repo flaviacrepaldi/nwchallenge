@@ -20,7 +20,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth'])->group(function () {
     Route::get('/guerreiros', 'GuerreirosController@index')->name('guerreiros');
     Route::get('/guerreiros/novoguerreiro', 'GuerreirosController@novo')->name('formguerreiros');
-    Route::post('/guerreiros/salvar', 'GuerreirosController@salvar');
+    Route::post('/guerreiros/salvar', 'GuerreirosController@salvar')->name('guerreiros.salvar');
+    Route::get('/guerreiros/editar/{id}', 'GuerreirosController@editar');
+    Route::post('/guerreiros/atualizar/{id}', 'GuerreirosController@atualizar')->name('guerreiros.atualizar');
+    Route::get('/guerreiros/excluir/{id}', 'GuerreirosController@excluir')->name('guerreiros.excluir');
 
     Route::get('/tipos', 'TiposController@index')->name('tipos');
     Route::get('/tipos/novotipo', 'TiposController@novo')->name('formtipos');

@@ -15,9 +15,7 @@
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
-                    @endif
-                    
-                        
+                    @endif                   
                     <form action="{{ route('tipos.salvar') }}" method="POST" enctype="multipart/form-data">                
 	                	{{ csrf_field() }}
 						<div class="form-group">

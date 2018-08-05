@@ -18,7 +18,7 @@ class CreateGuerreirosTable extends Migration
             
             $table->integer('id_tipo')->unsigned();
             $table->foreign('id_tipo')->references('id')->on('tipos');
-           
+            
             $table->string('nome')->unique();
             $table->integer('vida');
             $table->integer('defesa');

@@ -8,6 +8,18 @@ class Guerreiro extends Model
 {
     protected $fillable = [
         'nome',
-        //listar outros campos
+        'id_tipo',
+        'vida',
+        'defesa',
+        'dano',
+        'velocidade_ataque',
+        'velocidade_movimento',
+        'imagem_guerreiro'
     ];
+
+    public function especialidades() {
+        return $this->belongsToMany('App\Models\Especialidade' , 
+            'especialidades_guerreiros', 'id_especialidade', 'id_guerreiro');
+     }
+
 }
