@@ -15,10 +15,8 @@ class CreateGuerreirosTable extends Migration
     {
         Schema::create('guerreiros', function (Blueprint $table) {
             $table->increments('id');
-            
             $table->integer('id_tipo')->unsigned();
             $table->foreign('id_tipo')->references('id')->on('tipos');
-            
             $table->string('nome')->unique();
             $table->integer('vida');
             $table->integer('defesa');

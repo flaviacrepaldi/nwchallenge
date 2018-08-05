@@ -20,27 +20,28 @@
                     @if(Session::has('mensagem_sucesso'))
                         <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
                     @endif                    
-
+                    Essa especialidade está vinculada a um ou mais guerreiros. Excluindo-a, você também exluirá os guerreiros a ela vinculada. Confirma a exclusão?
                      <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Especialidade</th>
-                                <th>Ações</th>                                
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($especialidades as $especialidade)
                                 <tr>
                                     <th scope="row" class="text-center">{{ $especialidade->id }}</th>
                                     <td>{{ $especialidade->especialidade }}</td>
-                                    <td width="155" class="text-center">
-                                        <a href="{{env('APP_URL')}}especialidades/editar/{{$especialidade->id}}" class="btn btn-default btn-sm">Editar</a>
-                                        <a href="{{env('APP_URL')}}especialidades/excluir/{{$especialidade->id}}" class="btn btn-danger btn-sm">Excluir</a>
-                                    </td>
                                 </tr>
-                            @endforeach
                         </tbody>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="155" class="text-center">
+                                <a href="{{env('APP_URL')}}especialidades/confirmarexcluir/{{$especialidade->id}}" class="btn btn-default btn-sm">Confirmar</a>
+                                <a href="{{env('APP_URL')}}especialidades" class="btn btn-danger btn-sm">Cancelar</a>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>

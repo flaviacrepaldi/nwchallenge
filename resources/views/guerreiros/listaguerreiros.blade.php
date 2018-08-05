@@ -42,19 +42,26 @@
                                 <tr>
                                     <th scope="row" class="text-center">{{ $guerreiro->id }}</th> 
                                     <td>
-                                        <img src="http://nwchallenge.com/public/imagens/guerreiros/{{ $guerreiro->imagem_guerreiro }}"  width="10%" />
+                                        <img src="http://nwchallenge.com/imagens/guerreiros/{{ $guerreiro->imagem_guerreiro }}" style="max-width: 150px;" />
                                     </td>                                   
-                                    <td>{{ $guerreiro->nome }}</td>
-                                    <td>{{ $guerreiro->tipo }}</td>
-                                    <td>{{ $guerreiro->especialidade }}</td>
+                                    <td width="200px">{{ $guerreiro->nome }}</td>
+                                    <td>{{ $guerreiro->consultaTipoGuerreiro($guerreiro->id_tipo) }}</td>
+
+                                    <td width="200px">
+                                        @foreach(($guerreiro->consultaEspecialidades($guerreiro->id)) as $especialidade)
+                                            <span>{{ $especialidade->especialidade }}</span></br>
+                                        @endforeach
+                                    </td>                              
+                                    
                                     <td>{{ $guerreiro->vida }}</td>
                                     <td>{{ $guerreiro->defesa }}</td>
                                     <td>{{ $guerreiro->dano }}</td>
-                                    <td>{{ $guerreiro->velocidadeAtaque }}</td>
-                                    <td>{{ $guerreiro->velovidadeMovimento }}</td>
+                                    <td>{{ $guerreiro->velocidade_ataque }}</td>
+                                    <td>{{ $guerreiro->velocidade_movimento }}</td>
                                     <td width="155" class="text-center">
-                                        <a href="guerreiros/editar/{{$guerreiro->id}}" class="btn btn-default btn-sm">Editar</a>
-                                        <a href="guerreiros/excluir/{{$guerreiro->id}}" class="btn btn-danger btn-sm">Excluir</a>
+                                        <a href="{{env('APP_URL')}}guerreiros/editar/{{$guerreiro->id}}" class="btn btn-default btn-sm">Editar</a>
+                                        <a href="{{env('APP_URL')}}guerreiros/excluir/{{$guerreiro->id}}" class="btn btn-danger btn-sm">Excluir</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

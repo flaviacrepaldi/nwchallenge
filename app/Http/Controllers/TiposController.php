@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tipo;
+use App\Models\Guerreiro;
 
 class TiposController extends Controller
 {
@@ -56,10 +57,25 @@ class TiposController extends Controller
     public function excluir($id) {
         $tipo =  Tipo::find($id);
 
-        if($tipo){
+        if($tipo) {
+            $exists = Guerreiro::existsByTipo($tipo->id);
+            if ($exists) {
+                $data['tipo'] = $tipo;
+                return view('tipos/excluirtipos', $data);
+            }
             $result = $tipo->delete();
         }
 
+        return redirect()->route('tipos');
+    }
+
+    public function confirmarexcluir($id) {
+        $tipo =  Tipo::find($id);
+
+        if($tipo) {
+            Guerreiro::excluirPorTipo($tipo->id);
+            $result = $tipo->delete();
+        }
         return redirect()->route('tipos');
     }
 }

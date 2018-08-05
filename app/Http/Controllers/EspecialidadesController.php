@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Especialidade;
+use App\Models\Guerreiro;
 
 class EspecialidadesController extends Controller
 {
@@ -56,8 +57,24 @@ class EspecialidadesController extends Controller
     public function excluir($id) {
         $especialidade =  Especialidade::find($id);
 
-        if($especialidade){
+        if($especialidade) {
+            $existe = Guerreiro::existePorEspecialidade($especialidade->id);
+            if ($existe) {
+                $data['especialidade'] = $especialidade;
+                return view('especialidades/excluirespecialidades', $data);
+            }
+
             $result = $especialidade->delete();
+        }
+
+        return redirect()->route('especialidades');
+    }
+
+    public function confirmarexcluir($id) {
+        $especialidade =  Especialidade::find($id);
+        if ($especialidade) {
+            Guerreiro::excluirPorEspecialidade($especialidade->id);
+            $especialidade->delete();
         }
 
         return redirect()->route('especialidades');
